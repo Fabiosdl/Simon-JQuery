@@ -17,7 +17,10 @@ body{
 }
 h1 {
     font-size: 50px;
-    margin-bottom: 200px;
+}
+
+#game-over{
+    display:none;
 }
 .console{
     position: relative;
@@ -25,7 +28,9 @@ h1 {
     min-width: 400px;
     height: 400px;
     border-radius:50%;
+    scale: 0.6;
 }
+
 .blackcircle1, .blackcircle2, 
 .blackcircle3, .blackcircle4 {
     display: flex;

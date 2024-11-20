@@ -8,7 +8,8 @@ var level = 0;
 var bestLevel = 0;
 
 $('#start').click(function(){
-    $('.on').css("backgroundColor","green");
+    $('.on').css("backgroundColor","green");    
+    $('#game-over').css('display','none');
     if(!hasStarted){
         nextSequence();
         hasStarted = true;
@@ -42,6 +43,10 @@ function checkAnswer(currentLevel){
             $('#turn-counter2').text(bestLevel);
         }
 
+        $('#game-over').css('display','contents');
+
+        gameOverFlash();
+
         startOver();
     }
 }
@@ -51,7 +56,6 @@ function startOver(){
     userPattern = [];
     hasStarted = false;
     level = 0;
-
 }
 
 function nextSequence(){
@@ -95,4 +99,15 @@ function flashButton(colour){
     setTimeout(function(){
         $("#"+colour).removeClass("pressed");
     }, 200);
+}
+
+function gameOverFlash(){
+    for(let i = 0; i < 5; i++){
+        setTimeout(() => {
+            $(".btn").addClass('pressed');
+            setTimeout(() => {
+                $('.btn').removeClass('pressed');
+            },200);
+        }, i * 500);
+    }
 }
